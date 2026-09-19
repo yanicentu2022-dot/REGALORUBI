@@ -1,0 +1,1814 @@
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root {
+
+    --yellow-light: #fff9dc;
+    --yellow-soft: #fff1a8;
+    --yellow: #f8d94e;
+    --yellow-gold: #e9b92e;
+
+    --gold: #c99417;
+    --gold-dark: #8c6413;
+
+    --cream: #fffdf4;
+    --paper: #fffefa;
+
+    --brown: #5b461e;
+    --brown-soft: #806b3d;
+
+    --shadow: 0 25px 70px rgba(120, 87, 17, 0.13);
+
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Montserrat", Arial, sans-serif;
+}
+
+
+
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 226, 91, 0.20),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 85% 65%,
+            rgba(244, 196, 48, 0.13),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fffdf3,
+            #fff8d8,
+            #fffef8
+        );
+
+    color: var(--brown);
+
+    overflow-x: hidden;
+
+}
+
+
+
+/* =====================================================
+   DECORACIÓN DEL FONDO
+===================================================== */
+
+.background-decoration {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    overflow: hidden;
+
+}
+
+
+.flower {
+
+    position: absolute;
+
+    opacity: 0.10;
+
+    filter: blur(0.3px);
+
+    animation:
+        floatingFlower 8s ease-in-out infinite;
+
+    user-select: none;
+
+}
+
+
+.flower-1 {
+
+    top: 10%;
+    left: 3%;
+
+    font-size: 70px;
+
+}
+
+
+.flower-2 {
+
+    top: 35%;
+    right: 2%;
+
+    font-size: 95px;
+
+    animation-delay: 1s;
+
+}
+
+
+.flower-3 {
+
+    top: 65%;
+    left: 1%;
+
+    font-size: 55px;
+
+    animation-delay: 2s;
+
+}
+
+
+.flower-4 {
+
+    bottom: 10%;
+    right: 7%;
+
+    font-size: 75px;
+
+    animation-delay: 3s;
+
+}
+
+
+.flower-5 {
+
+    top: 80%;
+    left: 12%;
+
+    font-size: 40px;
+
+    animation-delay: 4s;
+
+}
+
+
+.flower-6 {
+
+    top: 18%;
+    right: 15%;
+
+    font-size: 45px;
+
+    animation-delay: 5s;
+
+}
+
+
+@keyframes floatingFlower {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-18px)
+            rotate(8deg);
+
+    }
+
+}
+
+
+
+/* =====================================================
+   HERO / BANNER
+===================================================== */
+
+.hero {
+
+    position: relative;
+
+    width: 100%;
+
+    height: min(780px, 90vh);
+
+    min-height: 620px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+}
+
+
+
+/* =====================================================
+   IMAGEN DEL BANNER
+===================================================== */
+
+.hero-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -3;
+
+    background-image:
+        url("banner.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    transform: scale(1.03);
+
+    animation:
+        bannerZoom 15s ease-out forwards;
+
+}
+
+
+@keyframes bannerZoom {
+
+    from {
+
+        transform: scale(1.10);
+
+    }
+
+    to {
+
+        transform: scale(1.03);
+
+    }
+
+}
+
+
+
+/* =====================================================
+   CAPA OSCURA SOBRE EL BANNER
+===================================================== */
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -2;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(38, 27, 3, 0.58),
+            rgba(38, 27, 3, 0.20) 35%,
+            rgba(38, 27, 3, 0.68)
+        );
+
+}
+
+
+
+/* =====================================================
+   BRILLO DORADO
+===================================================== */
+
+.hero-glow {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -1;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(255, 221, 92, 0.22),
+            transparent 52%
+        );
+
+    pointer-events: none;
+
+}
+
+
+
+/* =====================================================
+   CONTENIDO DEL BANNER
+===================================================== */
+
+.hero-content {
+
+    width: min(900px, 90%);
+
+    text-align: center;
+
+    color: white;
+
+    animation:
+        heroAppear 1.5s ease forwards;
+
+    text-shadow:
+
+        0 3px 15px
+        rgba(0, 0, 0, 0.65),
+
+        0 1px 3px
+        rgba(0, 0, 0, 0.9);
+
+}
+
+
+@keyframes heroAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+
+/* =====================================================
+   FLOR DEL BANNER
+===================================================== */
+
+.little-flower {
+
+    font-size: 45px;
+
+    margin-bottom: 18px;
+
+    filter:
+
+        drop-shadow(
+            0 4px 10px
+            rgba(0, 0, 0, 0.45)
+        );
+
+    animation:
+        flowerPulse 3s ease-in-out infinite;
+
+}
+
+
+@keyframes flowerPulse {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.08);
+
+    }
+
+}
+
+
+
+/* =====================================================
+   TEXTO PEQUEÑO
+===================================================== */
+
+.eyebrow {
+
+    font-family: var(--sans);
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    font-weight: 600;
+
+    margin-bottom: 18px;
+
+    opacity: 0.95;
+
+}
+
+
+
+/* =====================================================
+   TÍTULO DEL BANNER
+===================================================== */
+
+.hero h1 {
+
+    font-family: var(--serif);
+
+    font-size:
+        clamp(
+           80px, 9vw, 225px
+        );
+
+    line-height: 1.00;
+
+    font-weight: 600;
+
+letter-spacing: 3px;
+}
+
+
+.hero h1 span {
+
+    color: #ffe47a;
+
+    font-style: italic;
+
+}
+
+
+
+/* =====================================================
+   LÍNEA DORADA
+===================================================== */
+
+.golden-line {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    margin:
+        32px auto 25px;
+
+    color: #ffe47a;
+
+    font-size: 22px;
+
+}
+
+
+.golden-line span {
+
+    width: 80px;
+
+    height: 1px;
+
+}
+
+
+.golden-line span:first-child {
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #ffe47a
+        );
+
+}
+
+
+.golden-line span:last-child {
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #ffe47a,
+            transparent
+        );
+
+}
+
+
+
+/* =====================================================
+   SUBTÍTULO
+===================================================== */
+
+.hero-subtitle {
+
+    font-family: var(--sans);
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    opacity: 0.9;
+
+}
+
+
+
+/* =====================================================
+   INDICADOR DE SCROLL
+===================================================== */
+
+.scroll-indicator {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: white;
+
+    opacity: 0.8;
+
+}
+
+
+.scroll-indicator span {
+
+    width: 1px;
+
+    height: 45px;
+
+    background: white;
+
+    animation:
+        scrollLine 2s
+        ease-in-out
+        infinite;
+
+}
+
+
+.scroll-indicator p {
+
+    font-family: var(--sans);
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+}
+
+
+@keyframes scrollLine {
+
+    0%,
+    100% {
+
+        transform:
+            scaleY(0.5);
+
+        transform-origin:
+            top;
+
+    }
+
+    50% {
+
+        transform:
+            scaleY(1);
+
+        transform-origin:
+            top;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main {
+
+    width: 100%;
+
+    display: block;
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+
+/* =====================================================
+   SECCIÓN DEL MENSAJE
+===================================================== */
+
+.message-section {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    min-height: 600px;
+
+    padding:
+        130px
+        20px
+        120px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+}
+
+
+
+/* =====================================================
+   DECORACIONES LATERALES
+===================================================== */
+
+.section-decoration {
+
+    position: absolute;
+
+    font-size: 180px;
+
+    opacity: 0.08;
+
+    pointer-events: none;
+
+    user-select: none;
+
+}
+
+
+.left-decoration {
+
+    left: -45px;
+
+    top: 180px;
+
+    transform:
+        rotate(-20deg);
+
+}
+
+
+.right-decoration {
+
+    right: -45px;
+
+    bottom: 130px;
+
+    transform:
+        rotate(20deg);
+
+}
+
+
+
+/* =====================================================
+   TARJETA CENTRAL
+===================================================== */
+
+.message-card {
+
+    position: relative;
+
+    width: min(950px, 100%);
+
+    margin:
+        0 auto;
+
+    padding:
+        85px
+        clamp(25px, 8vw, 100px)
+        90px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(255, 253, 241, 0.98)
+        );
+
+    border:
+        1px solid
+        rgba(221, 178, 49, 0.35);
+
+    box-shadow:
+        var(--shadow);
+
+    border-radius: 8px;
+
+    text-align: center;
+
+    opacity: 0;
+
+    transform:
+        translateY(40px);
+
+    transition:
+
+        opacity 1s ease,
+
+        transform 1s ease;
+
+}
+
+
+
+/* =====================================================
+   BORDE INTERIOR
+===================================================== */
+
+.message-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 14px;
+
+    border:
+        1px solid
+        rgba(213, 169, 38, 0.25);
+
+    pointer-events: none;
+
+    border-radius: 4px;
+
+}
+
+
+
+/* =====================================================
+   APARICIÓN DE LA TARJETA
+===================================================== */
+
+.message-card.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+
+/* =====================================================
+   FLOR SUPERIOR
+===================================================== */
+
+.top-flower {
+
+    font-size: 40px;
+
+    margin-bottom: 15px;
+
+    filter:
+
+        drop-shadow(
+            0 4px 5px
+            rgba(193, 143, 21, 0.20)
+        );
+
+}
+
+
+
+/* =====================================================
+   TÍTULO PEQUEÑO
+===================================================== */
+
+.small-title {
+
+    font-family: var(--sans);
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    font-weight: 600;
+
+    color: var(--gold);
+
+    margin-bottom: 15px;
+
+}
+
+
+
+/* =====================================================
+   TÍTULO PRINCIPAL
+===================================================== */
+
+.message-card h2 {
+
+    font-family: var(--serif);
+
+    font-size:
+        clamp(
+            42px,
+            6vw,
+            67px
+        );
+
+    font-weight: 600;
+
+    color: var(--brown);
+
+    line-height: 1;
+
+}
+
+
+
+/* =====================================================
+   SEPARADOR
+===================================================== */
+
+.separator {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin:
+        30px auto 42px;
+
+    color: var(--gold);
+
+}
+
+
+.separator span {
+
+    width: 75px;
+
+    height: 1px;
+
+}
+
+
+.separator span:first-child {
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--yellow-gold)
+        );
+
+}
+
+
+.separator span:last-child {
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--yellow-gold),
+            transparent
+        );
+
+}
+
+
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.message {
+
+    width: 100%;
+
+    max-width: 720px;
+
+    margin:
+        0 auto;
+
+    text-align: left;
+
+}
+
+
+.message p {
+
+    font-family: var(--serif);
+
+    font-size: 21px;
+
+    line-height: 1.85;
+
+    color: var(--brown-soft);
+
+    margin-bottom: 28px;
+
+    font-weight: 500;
+
+}
+
+
+.message p:first-child::first-letter {
+
+    font-size: 70px;
+
+    float: left;
+
+    line-height: 0.75;
+
+    padding:
+        8px
+        10px
+        0
+        0;
+
+    color: var(--yellow-gold);
+
+    font-weight: 700;
+
+}
+
+
+
+/* =====================================================
+   CORAZÓN DE FLORES
+===================================================== */
+
+.flower-heart {
+
+    --flower-size: 34px;
+
+    position: relative;
+
+    width: 270px;
+
+    height: 245px;
+
+    margin:
+        65px auto 22px;
+
+    animation:
+        heartFloat 4s
+        ease-in-out
+        infinite;
+
+    filter:
+
+        drop-shadow(
+            0 10px 15px
+            rgba(211, 161, 23, 0.22)
+        );
+
+}
+
+
+
+/* =====================================================
+   FLORES INDIVIDUALES
+===================================================== */
+
+.heart-flower {
+
+    position: absolute;
+
+    width: var(--flower-size);
+
+    height: var(--flower-size);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: var(--flower-size);
+
+    line-height: 1;
+
+    transform-origin: center;
+
+    transition:
+
+        transform 0.3s ease,
+
+        filter 0.3s ease;
+
+}
+
+
+.heart-flower:hover {
+
+    transform:
+        scale(1.25)
+        rotate(8deg);
+
+    filter:
+
+        drop-shadow(
+            0 0 8px
+            rgba(255, 213, 58, 0.85)
+        );
+
+    z-index: 10;
+
+}
+
+
+
+/* =====================================================
+   POSICIONES DEL CORAZÓN
+
+             🌼 🌼       🌼 🌼
+           🌼 🌼 🌼   🌼 🌼 🌼
+         🌼 🌼 🌼 🌼 🌼 🌼 🌼 🌼
+         🌼 🌼 🌼 🌼 🌼 🌼 🌼 🌼
+           🌼 🌼 🌼 🌼 🌼 🌼
+             🌼 🌼 🌼 🌼
+               🌼 🌼
+                 🌼
+===================================================== */
+
+
+/* Primera curva */
+
+.f1 {
+
+    left: 48px;
+    top: 0;
+
+}
+
+.f2 {
+
+    left: 82px;
+    top: 0;
+
+}
+
+.f3 {
+
+    left: 154px;
+    top: 0;
+
+}
+
+.f4 {
+
+    left: 188px;
+    top: 0;
+
+}
+
+
+
+/* Segunda fila */
+
+.f5 {
+
+    left: 30px;
+    top: 32px;
+
+}
+
+.f6 {
+
+    left: 64px;
+    top: 32px;
+
+}
+
+.f7 {
+
+    left: 98px;
+    top: 32px;
+
+}
+
+.f8 {
+
+    left: 136px;
+    top: 32px;
+
+}
+
+.f9 {
+
+    left: 170px;
+    top: 32px;
+
+}
+
+.f10 {
+
+    left: 204px;
+    top: 32px;
+
+}
+
+
+
+/* Tercera fila */
+
+.f11 {
+
+    left: 13px;
+    top: 64px;
+
+}
+
+.f12 {
+
+    left: 47px;
+    top: 64px;
+
+}
+
+.f13 {
+
+    left: 81px;
+    top: 64px;
+
+}
+
+.f14 {
+
+    left: 115px;
+    top: 64px;
+
+}
+
+.f15 {
+
+    left: 149px;
+    top: 64px;
+
+}
+
+.f16 {
+
+    left: 183px;
+    top: 64px;
+
+}
+
+.f17 {
+
+    left: 217px;
+    top: 64px;
+
+}
+
+
+
+/* Cuarta fila */
+
+.f18 {
+
+    left: 13px;
+    top: 96px;
+
+}
+
+.f19 {
+
+    left: 47px;
+    top: 96px;
+
+}
+
+.f20 {
+
+    left: 81px;
+    top: 96px;
+
+}
+
+.f21 {
+
+    left: 115px;
+    top: 96px;
+
+}
+
+.f22 {
+
+    left: 149px;
+    top: 96px;
+
+}
+
+.f23 {
+
+    left: 183px;
+    top: 96px;
+
+}
+
+.f24 {
+
+    left: 217px;
+    top: 96px;
+
+}
+
+
+
+/* Quinta fila */
+
+.f25 {
+
+    left: 30px;
+    top: 128px;
+
+}
+
+.f26 {
+
+    left: 64px;
+    top: 128px;
+
+}
+
+.f27 {
+
+    left: 98px;
+    top: 128px;
+
+}
+
+.f28 {
+
+    left: 132px;
+    top: 128px;
+
+}
+
+.f29 {
+
+    left: 166px;
+    top: 128px;
+
+}
+
+.f30 {
+
+    left: 200px;
+    top: 128px;
+
+}
+
+
+
+/* Sexta fila */
+
+.f31 {
+
+    left: 64px;
+    top: 160px;
+
+}
+
+.f32 {
+
+    left: 98px;
+    top: 160px;
+
+}
+
+.f33 {
+
+    left: 132px;
+    top: 160px;
+
+}
+
+.f34 {
+
+    left: 166px;
+    top: 160px;
+
+}
+
+
+
+/* Punta */
+
+.f35 {
+
+    left: 98px;
+    top: 192px;
+
+}
+
+.f36 {
+
+    left: 132px;
+    top: 192px;
+
+}
+
+
+
+/* =====================================================
+   ANIMACIÓN DEL CORAZÓN
+===================================================== */
+
+@keyframes heartFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-8px);
+
+    }
+
+}
+
+
+
+/* =====================================================
+   TEXTO DEL CORAZÓN
+===================================================== */
+
+.heart-caption {
+
+    font-family: var(--sans);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: var(--gold);
+
+    opacity: 0.8;
+
+    text-align: center;
+
+    margin-top: 12px;
+
+}
+
+
+
+/* =====================================================
+   SECCIÓN FINAL
+===================================================== */
+
+.final-section {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    text-align: center;
+
+    padding:
+        100px
+        20px
+        120px;
+
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+
+    transition:
+
+        opacity 1s ease,
+
+        transform 1s ease;
+
+}
+
+
+.final-section.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.final-flower {
+
+    font-size: 60px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.final-section p {
+
+    max-width: 650px;
+
+    margin:
+        0 auto;
+
+    font-family: var(--serif);
+
+    font-size: 34px;
+
+    line-height: 1.35;
+
+    font-style: italic;
+
+    color: var(--brown);
+
+}
+
+
+.final-line {
+
+    margin-top: 30px;
+
+    color: var(--gold);
+
+    letter-spacing: 5px;
+
+}
+
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    padding: 30px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #f4cf45,
+            #e7b62d
+        );
+
+    color: white;
+
+    box-shadow:
+
+        0 -10px 40px
+        rgba(157, 112, 15, 0.12);
+
+}
+
+
+footer p {
+
+    font-family: var(--sans);
+
+    text-transform: uppercase;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+}
+
+
+footer span {
+
+    font-size: 17px;
+
+}
+
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 700px) {
+
+
+    .hero {
+
+        min-height: 600px;
+
+        height: 90vh;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            clamp(
+                52px,
+                15vw,
+                80px
+            );
+
+        letter-spacing: -2px;
+
+    }
+
+
+    .eyebrow {
+
+        letter-spacing: 3px;
+
+        font-size: 9px;
+
+    }
+
+
+    .hero-subtitle {
+
+        font-size: 10px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .message-section {
+
+        padding:
+            80px
+            14px;
+
+    }
+
+
+    .message-card {
+
+        width: 100%;
+
+        margin:
+            0 auto;
+
+        padding:
+            65px
+            24px
+            70px;
+
+    }
+
+
+    .message-card::before {
+
+        inset: 9px;
+
+    }
+
+
+    .message-card h2 {
+
+        font-size: 43px;
+
+    }
+
+
+    .message {
+
+        width: 100%;
+
+        text-align: left;
+
+    }
+
+
+    .message p {
+
+        font-size: 19px;
+
+        line-height: 1.75;
+
+    }
+
+
+    .separator span {
+
+        width: 45px;
+
+    }
+
+
+    .section-decoration {
+
+        font-size: 100px;
+
+    }
+
+
+    .final-section p {
+
+        font-size: 29px;
+
+    }
+
+
+    .scroll-indicator {
+
+        bottom: 20px;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   CORAZÓN EN PANTALLAS PEQUEÑAS
+===================================================== */
+
+@media (max-width: 500px) {
+
+
+    .flower-heart {
+
+        --flower-size: 27px;
+
+        width: 215px;
+
+        height: 200px;
+
+        transform:
+            scale(0.9);
+
+    }
+
+
+    .heart-caption {
+
+        font-size: 8px;
+
+        letter-spacing: 3px;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   PANTALLAS MUY PEQUEÑAS
+===================================================== */
+
+@media (max-width: 400px) {
+
+
+    .hero h1 {
+
+        font-size: 48px;
+
+    }
+
+
+    .message-card {
+
+        padding:
+            55px
+            18px
+            60px;
+
+    }
+
+
+    .message p {
+
+        font-size: 18px;
+
+    }
+
+
+    .flower-heart {
+
+        --flower-size: 24px;
+
+        width: 190px;
+
+        height: 180px;
+
+        transform:
+            scale(0.88);
+
+    }
+
+
+    .heart-caption {
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+
+    }
+
+ }
